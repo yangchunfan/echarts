@@ -2,43 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>第一个 ECharts 实例</title>
+    <title>点击图标显示具体信息</title>
     <!-- 引入 echarts.js -->
     <script src="./echarts.js"></script>
 </head>
 <body>
-    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
-    <div id="main" style="width: 600px;height:400px;"></div>
-    <script type="text/javascript">
-      // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(document.getElementById('main'));
-
-      // 指定图表的配置项和数据
-      var option = {
-        title: {
-          text: 'ECharts 入门示例'
-        },
-        tooltip: {},
-        legend: {
-          data: ['销量']
-        },
-        xAxis: {
-          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-        },
-        yAxis: {},
-        series: [
-          {
-            name: '销量',
-            type: 'bar',
-            data: [15, 20, 36, 10, 10, 0]
-          }
-        ]
-      };
-
-      // 使用刚指定的配置项和数据显示图表。
-      myChart.setOption(option);
-    </script>
-  </body>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="main" style="width: 600px;height:400px;"></div>
     <script type="text/javascript">
@@ -46,15 +14,12 @@
         var myChart = echarts.init(document.getElementById('main'));
  
         // 指定图表的配置项和数据
-        var option = {
-  title: {
-    text: '折线图'
-  },
+        var option1 = {
   tooltip: {
-    trigger: 'axis'
-  },
-  legend: {
-    data: ['Email', 'Union_Ads', 'Video Ads', 'Direct', 'Search Engine']
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
   },
   grid: {
     left: '3%',
@@ -62,55 +27,39 @@
     bottom: '3%',
     containLabel: true
   },
-  toolbox: {
-    feature: {
-      saveAsImage: {}
+  xAxis: [
+    {
+      type: 'category',
+      data: ['汶川地震', '庐山','九寨沟地震','泸定地震'],
+      axisTick: {
+        alignWithLabel: true
+      }
     }
-  },
-  xAxis: {
-    type: 'category',
-    boundaryGap: false,
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-  },
-  yAxis: {
-    type: 'value'
-  },
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
   series: [
     {
-      name: 'Email',
-      type: 'line',
-      stack: 'Total',
-      data: [120, 132, 101, 134, 90, 230, 210]
+      name: '滑坡次数次数',
+      type: 'bar',
+      barWidth: '45%',
+      data: [197481, 22528, 4834, 699]
     },
     {
-      name: 'Union_Ads',
-      type: 'line',
-      stack: 'Total',
-      data: [220, 182, 191, 234, 290, 330, 310]
-    },
-    {
-      name: 'Video Ads',
-      type: 'line',
-      stack: 'Total',
-      data: [150, 232, 201, 154, 190, 330, 410]
-    },
-    {
-      name: 'Direct',
-      type: 'line',
-      stack: 'Total',
-      data: [320, 332, 301, 334, 390, 330, 320]
-    },
-    {
-      name: 'Search Engine',
-      type: 'line',
-      stack: 'Total',
-      data: [820, 932, 901, 934, 1290, 1330, 1320]
+      name: '总面积',
+      type: 'bar',
+      barWidth: '45%',
+      data: [1160, 18.88, 9.64, 3.23]
     }
   ]
-};;
+};
+;
  
         // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+        myChart.setOption(option1);
     </script>
 </body>
 </html>
